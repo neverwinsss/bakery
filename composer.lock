@@ -3265,16 +3265,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v6.4.12",
+            "version": "v6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "0dd90b67e97a0c1c023c3e89c66265eb2767ec3c"
+                "reference": "v6.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/0dd90b67e97a0c1c023c3e89c66265eb2767ec3c",
-                "reference": "0dd90b67e97a0c1c023c3e89c66265eb2767ec3c",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/v6.4",
+                "reference": "v6.4",
                 "shasum": ""
             },
             "require": {
@@ -3290,26 +3290,12 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
+            "license": ["MIT"],
+            "authors": [{"name": "Fabien Potencier","email": "fabien@symfony.com"}],
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v6.4.12"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                }
-            ],
+            "support": {"source": "https://github.com/symfony/css-selector/tree/v6.4"},
+            "funding": [{"url": "https://symfony.com/sponsor","type": "custom"}],
             "time": "2024-12-06T14:44:33+00:00"
         },
 
