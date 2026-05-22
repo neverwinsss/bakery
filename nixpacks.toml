@@ -5,9 +5,9 @@ nixPkgs = ["php82", "nodejs"]
 cmds = [
   "mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx",
   "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"",
-  "php composer-setup.php --install-dir=/usr/local/bin --filename=composer",
+  "php composer-setup.php",
   "php -r \"unlink('composer-setup.php');\"",
-  "composer install --ignore-platform-reqs --no-dev --optimize-autoloader",
+  "php composer.phar install --ignore-platform-reqs --no-dev --optimize-autoloader",
   "npm install"
 ]
 
