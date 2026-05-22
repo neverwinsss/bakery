@@ -3265,16 +3265,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v7.4.9",
+            "version": "v7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "8a7af7e955c3ea59fb8e48be893bb46fed7bcd0c"
+                "reference": "a3f69a11ae37f31aacf4ad6cedb95cff1ca3c94a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/7c81d47e5b4e74d8ac622e217fef3f95db8bad0f",
-                "reference": "8a7af7e955c3ea59fb8e48be893bb46fed7bcd0c",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a3f69a11ae37f31aacf4ad6cedb95cff1ca3c94a",
+                "reference": "a3f69a11ae37f31aacf4ad6cedb95cff1ca3c94a",
                 "shasum": ""
             },
             "require": {
@@ -3310,7 +3310,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v7.4.9"
+                "source": "https://github.com/symfony/css-selector/tree/v7.3.0"
             },
             "funding": [
                 {
