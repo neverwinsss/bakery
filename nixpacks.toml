@@ -10,10 +10,22 @@ cmds = [
   "npm install"
 ]
 
+[phases.setup]
+nixPkgs = ["php82", "nodejs"]
+
+[phases.install]
+cmds = [
+  "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"",
+  "php composer-setup.php",
+  "php -r \"unlink('composer-setup.php');\"",
+  "php composer.phar install --ignore-platform-reqs --no-dev --optimize-autoloader",
+  "npm install"
+]
+
 [phases.build]
 cmds = [
   "npm run build",
-  "php composer.phar dump-autoload",
+  "php composer.phar dump-autoload --ignore-platform-reqs",
   "php artisan config:clear",
   "php artisan cache:clear"
 ]
