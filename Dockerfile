@@ -16,13 +16,9 @@ RUN apt-get update && apt-get install -y nodejs npm && npm install && npm run bu
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Create .env if doesn't exist
 RUN if [ ! -f .env ]; then cp .env.example .env; fi
-
-# Generate APP_KEY
 RUN php artisan key:generate || true
 
 EXPOSE 8080
 
-# Run migrations and start server
-CMD sh -c "php artisan migrate --force 2>/dev/null; php artisan serve --host=0.0.0.0 --port=8080"
+CMD sh -c "echo 'Starting migrations...' && php artisan migrate --force && echo 'Migrations complete' && php artisan serve --host=0.0.0.0 --port=8080"
