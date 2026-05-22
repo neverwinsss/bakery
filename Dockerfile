@@ -21,4 +21,7 @@ RUN php artisan key:generate || true
 
 EXPOSE 8080
 
-CMD sh -c "echo 'Starting migrations...' && php artisan migrate --force && echo 'Migrations complete' && php artisan serve --host=0.0.0.0 --port=8080"
+# Entrypoint script
+RUN echo '#!/bin/bash\necho "Running migrations..."\nphp /app/artisan migrate --force 2>&1\necho "Starting server..."\nphp /app/artisan serve --host=0.0.0.0 --port=8080' > /entrypoint.sh && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
