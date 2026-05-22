@@ -3269,12 +3269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "7c81d47e5b4e74d8ac622e217fef3f95db8bad0f"
+                "reference": "8a7af7e955c3ea59fb8e48be893bb46fed7bcd0c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/css-selector/zipball/7c81d47e5b4e74d8ac622e217fef3f95db8bad0f",
-                "reference": "7c81d47e5b4e74d8ac622e217fef3f95db8bad0f",
+                "reference": "8a7af7e955c3ea59fb8e48be893bb46fed7bcd0c",
                 "shasum": ""
             },
             "require": {
