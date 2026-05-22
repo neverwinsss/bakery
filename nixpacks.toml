@@ -3,7 +3,6 @@ nixPkgs = ["php82", "nodejs"]
 
 [phases.install]
 cmds = [
-  "mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx",
   "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"",
   "php composer-setup.php",
   "php -r \"unlink('composer-setup.php');\"",
@@ -16,5 +15,5 @@ cmds = [
   "npm run build"
 ]
 
-[start]
-cmd = "php artisan serve --host=0.0.0.0 --port=8080"
+# Мы просто удалили секцию [start]. 
+# Без неё Nixpacks автоматически запустит встроенный Nginx + PHP-FPM, идеально настроенный под Laravel!
