@@ -1,9 +1,11 @@
-[ 7/15] RUN  php artisan config:cache
-473ms
-Warning: require(/app/vendor/autoload.php): Failed to open stream: No such file or directory in /app/artisan on line 18
-Fatal error: Uncaught Error: Failed opening required '/app/vendor/autoload.php' (include_path='.:/nix/store/gf34svipabi8bw2gpwisc27inh9p3ip6-php-8.3.15/lib/php') in /app/artisan:18
+[phases.setup]
+nixPkgs = ["php83", "php83Packages.composer", "nodejs"]
 
-Stack trace:
-#0 {main}
-  thrown in /app/artisan on line 18
-Build Failed: build daemon returned an error < failed to solve: process "/bin/bash -ol pipefail -c php artisan config:cache" did not complete successfully: exit code: 255 >
+[phases.install]
+cmds = ["composer install --no-dev --optimize-autoloader"]
+
+[phases.build]
+cmds = ["npm install && npm run build"]
+
+[start]
+cmd = "php -S 0.0.0.0:8080 -t public"
