@@ -1,3 +1,0 @@
-[build]
-php_version = "8.4"
-# Cache buster: force rebuild with PHP 8.4
