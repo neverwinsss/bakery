@@ -1,9 +1,10 @@
 [phases.setup]
-nixPkgs = ["php", "composer", "nodejs"]
+nixPkgs = ["php82", "nodejs"]
 
-[phases.build]
+[phases.install]
 cmds = [
-  "composer install --no-dev --optimize-autoloader",
+  "mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx",
+  "composer install --ignore-platform-reqs --no-dev --optimize-autoloader",
   "npm install",
   "npm run build"
 ]
