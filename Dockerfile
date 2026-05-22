@@ -19,10 +19,10 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 # Create .env if doesn't exist
 RUN if [ ! -f .env ]; then cp .env.example .env; fi
 
-# Generate APP_KEY if not set
+# Generate APP_KEY
 RUN php artisan key:generate || true
 
 EXPOSE 8080
 
-# Start PHP server and tail logs
-CMD sh -c "php artisan serve --host=0.0.0.0 --port=8080 2>&1 & tail -f storage/logs/laravel.log"
+# Run migrations and start server
+CMD sh -c "php artisan migrate --force 2>/dev/null; php artisan serve --host=0.0.0.0 --port=8080"
