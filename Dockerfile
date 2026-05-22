@@ -16,6 +16,12 @@ RUN apt-get update && apt-get install -y nodejs npm && npm install && npm run bu
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+# Create .env if doesn't exist
+RUN if [ ! -f .env ]; then cp .env.example .env; fi
+
+# Generate APP_KEY if not set
+RUN php artisan key:generate || true
+
 EXPOSE 8080
 
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
