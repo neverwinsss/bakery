@@ -10,9 +10,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('products')->get();
-        $featured   = Product::where('is_available', 1)->inRandomOrder()->take(6)->get();
-        $posts      = Post::latest()->take(3)->get();
+        try {
+            $categories = Category::with('products')->get();
+            $featured   = Product::where('is_available', 1)->inRandomOrder()->take(6)->get();
+            $posts      = Post::latest()->take(3)->get();
+        } catch (\Exception $e) {
+            // Database not ready yet
+            $categories = collect([]);
+            $featured   = collect([]);
+            $posts      = collect([]);
+        }
 
         return view('home', compact('categories', 'featured', 'posts'));
     }
