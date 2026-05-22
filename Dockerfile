@@ -24,4 +24,5 @@ RUN php artisan key:generate || true
 
 EXPOSE 8080
 
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+# Start PHP server and tail logs
+CMD sh -c "php artisan serve --host=0.0.0.0 --port=8080 2>&1 & tail -f storage/logs/laravel.log"
