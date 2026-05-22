@@ -12,8 +12,11 @@ cmds = [
 
 [phases.build]
 cmds = [
-  "npm run build"
+  "npm run build",
+  "php composer.phar dump-autoload",
+  "php artisan config:clear",
+  "php artisan cache:clear"
 ]
 
-# Мы просто удалили секцию [start]. 
-# Без неё Nixpacks автоматически запустит встроенный Nginx + PHP-FPM, идеально настроенный под Laravel!
+[start]
+cmd = "nixpacks-php-fpm"
