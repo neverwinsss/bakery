@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["php83", "php83Packages.composer", "nodejs"]
+nixPkgs = ["php83", "php83Packages.composer", "nodejs", "nginx"]
 
 [phases.install]
 cmds = ["composer install --no-dev --optimize-autoloader"]
@@ -7,5 +7,8 @@ cmds = ["composer install --no-dev --optimize-autoloader"]
 [phases.build]
 cmds = ["npm install", "npm run build"]
 
+[phases.release]
+cmds = ["php artisan migrate --force --no-interaction || true"]
+
 [start]
-cmd = "php -S 0.0.0.0:${PORT:-8080} -t public"
+cmd = "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"
